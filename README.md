@@ -46,6 +46,38 @@ Please create a bucket and add below tags. ([Single bucket mode](#S3-bucket-mode
     - **S3_BUCKET_NAME** : The S3 bucket name.
 
 
+## Execution IAM policy
+This Lambda function require a IAM policy like below.
+```json
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Effect": "Allow",
+      "Action": [
+        "s3:GetBucketTagging",
+        "s3:ListBucket"
+      ],
+      "Resource": [
+        "arn:aws:s3:::S3_BUCKET_NAME"
+      ]
+    },
+    {
+      "Effect": "Allow",
+      "Action": [
+        "s3:DeleteObject",
+        "s3:GetObject",
+        "s3:PutObject"
+      ],
+      "Resource": [
+        "arn:aws:s3:::S3_BUCKET_NAME/*"
+      ]
+    }
+  ]
+}
+```
+
+
 ## S3 Bucket Modes
 
 This function can be used in two modes depending on the type of S3 bucket being used.
@@ -72,6 +104,13 @@ This function can be used in two modes depending on the type of S3 bucket being 
             url = https://USERNAME:PASSWORD@00000000.execute-api.region.amazonaws.com/lfs/common/S3_BUCKET_NAME/REPOSITORY_NAME
             ```
             - **REPOSITORY_NAME** : Yours repository name.
+
+
+## Example of API Gateway configuration
+
+Resources | Stages
+----------|--------
+![Resources](/README/API-Gateway-Resources.png) | ![Stages](/README/API-Gateway-Stages.png)
 
 
 ## License
