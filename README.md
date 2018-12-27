@@ -45,8 +45,8 @@ Please create a bucket and add below tags. ([Single bucket mode](#S3-bucket-mode
     [lfs]
     url = https://<USERNAME>:<PASSWORD>@00000000.execute-api.region.amazonaws.com/lfs/single/<S3_BUCKET_NAME>
     ```
-    - **<USERNAME>** : Authentication user name what written on LFS_USERNAME tag of S3 bucket.
-    - **<PASSWORD>** : Authentication password what written on LFS_PASSWORD tag of S3 bucket.
+    - **&lt;USERNAME&gt;** : Authentication user name what written on LFS_USERNAME tag of S3 bucket.
+    - **&lt;PASSWORD&gt;** : Authentication password what written on LFS_PASSWORD tag of S3 bucket.
     - **00000000.execute-api.region.amazonaws.com/lfs** : URL of API Gateway stage.
     - **<S3_BUCKET_NAME>** : The S3 bucket name.
 
